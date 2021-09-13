@@ -46,7 +46,7 @@ int main()
     unsigned short n1;
     cin >> n1;
     // unsigned short mask2 = 0x7E1F; // 111 1110 0001 1111
-    unsigned short mask2 = ~((~(~0 << 4)) << (5));
+    unsigned short mask2 = ~((~(~0 << 4)) << (4));
     n1 = n1 & mask2;
     cout << "Result: ";
     coutp(n1);
