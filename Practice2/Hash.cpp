@@ -37,7 +37,7 @@ class Hash
     void insertItems() {
         string line;
         ifstream f;
-        f.open("file.dat");
+        f.open("file.dat", 'rb');
         while (getline(f, line)) {
             int key = odigits(line);
             int index = hashFunction(key);
@@ -46,8 +46,17 @@ class Hash
     }
 
     void delItem(int key) {
-        int index = hashFunction(key);
-        
+        string line;
+        string keys = to_string(key);
+        ifstream f;
+        f.open("file.dat", 'wb');
+        while (getline(f, line)) {
+            if (line.find(key, 0) == 0) {
+                
+                break;
+            }
+        }
+        (*table).remove(hashFunction(key));
     }
 
     void rehash(int *m[], int size, int newn) {
