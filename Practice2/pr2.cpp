@@ -17,11 +17,13 @@ void CreateBinFile(string nametf, string namebf) {
     record r;
     int len = sizeof(r);
     while (!itf.eof()) {
+        itf.getline(r.data, len, '\n');
         itf >> r.key;
         itf.get();
-        itf.getline(r.data, len, '\n');
         obf.write((char*)&r, len);
+        cout << "check 3";
     }
+    cout << "check1";
     itf.close();
     obf.close();
 }
@@ -35,12 +37,15 @@ void outBinFile(string namebf) {
         while (!obf.eof()) {
             cout << r.key << " " << r.data << "\n";
             obf.read((char*)&r, len);
+            cout << "check2";
         }
         obf.close();
     }
     else
     cout << "File not found\n";
 }
+
+
 
 int main()
 {
